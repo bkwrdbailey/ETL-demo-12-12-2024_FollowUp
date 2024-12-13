@@ -13,4 +13,7 @@ CustomDataParser customDataParser = new CustomDataParser();
 Dictionary<int, Person> outputData =  customDataParser.ParseFileData(inputs);
 
 // Display file contents to CLI
-//Console.WriteLine(outputData);
+foreach (Person person in outputData.Values)
+{
+    Console.WriteLine(person.ToString());
+}

@@ -16,7 +16,20 @@ namespace ETL_demo_12_12_2024_FollowUp.Services
         /// <returns> Parsed file contents that have been converted to a Dictionary Collection </returns>
         public Dictionary<int, Person> ParseFileData(List<string> inputs)
         {
-            return null;
+            Dictionary<int, Person> personDetails = new Dictionary<int, Person>();
+
+            for (int i = 0; i < inputs.Count; i++)
+            {
+                //Console.WriteLine(inputs[i]);
+                var innerElements = inputs[i].Split(',');
+
+                // Convert the split inner string elements into the proper Data Types to be used in the Person Constructor
+                Person newPerson = new Person(Convert.ToInt32(innerElements[0]), innerElements[1], Convert.ToInt32(innerElements[2]), innerElements[3]);
+
+                personDetails.Add(Convert.ToInt32(innerElements[0]), newPerson);
+            }
+
+            return personDetails;
         }
     }
 }
