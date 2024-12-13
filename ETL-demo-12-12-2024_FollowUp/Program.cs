@@ -1,2 +1,13 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using ETL_demo_12_12_2024_FollowUp.Models;
+using ETL_demo_12_12_2024_FollowUp.Services;
+
+// Read a file's contents
+CustomFileReader customFileReader = new CustomFileReader();
+List<string> inputs = customFileReader.ReadFileContents("input.csv");
+
+// Parse a file's contents
+CustomDataParser customDataParser = new CustomDataParser();
+Dictionary<int, Person> outputData =  customDataParser.ParseFileData(inputs);
+
+// Display file contents to CLI
+Console.WriteLine(outputData);
