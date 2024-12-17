@@ -2,7 +2,7 @@
 using ETL_demo_12_12_2024_FollowUp.Services;
 
 // Read a file's contents
-CustomFileReader customFileReader = new CustomFileReader();
+CustomFileReader customFileReader = CustomFileReader.Instance;
 List<string> inputs = customFileReader.ReadFileContents("input.csv");
 
 //Console.WriteLine(string.Join(',', inputs));

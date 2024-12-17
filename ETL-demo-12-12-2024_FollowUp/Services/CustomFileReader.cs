@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace ETL_demo_12_12_2024_FollowUp.Services
 {
-    public class CustomFileReader
+    public sealed class CustomFileReader
     {
+        // Encapsulated field that gets instantiated during initial project Startup so to avoid need to assign a new Instance during runtime
+        private static readonly CustomFileReader instance = new CustomFileReader();
+
+        static CustomFileReader() { }
+
+        private CustomFileReader() { }
+
+        // Public Property for getting the same class instance no matter what external functionality that calls this to enforce the Singleton Design Pattern
+        public static CustomFileReader Instance
+        {
+            get { return instance; }
+        }
+
         /// <summary>
         /// Searches for a file based on the filename passed in and inserts the contents of the file into a List<string> Collection
         /// </summary>
