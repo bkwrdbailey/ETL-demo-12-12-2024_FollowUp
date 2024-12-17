@@ -9,7 +9,7 @@ List<string> inputs = customFileReader.ReadFileContents("input.csv");
 //Console.Read();
 
 // Parse a file's contents
-CustomDataParser customDataParser = new CustomDataParser();
+CustomDataParser customDataParser = CustomDataParser.Instance;
 Dictionary<int, Person> outputData =  customDataParser.ParseFileData(inputs);
 
 // Display file contents to CLI
