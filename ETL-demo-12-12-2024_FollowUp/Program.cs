@@ -10,8 +10,8 @@ CustomDataParser customDataParser = CustomDataParser.Instance;
 Dictionary<int, Person> outputData =  customDataParser.ParseFileData(inputs);
 
 // Instantiate CustomLoggers for Console or specified File logging
-CustomLogger consoleLogger = new CustomLogger("App.class");
-CustomLogger fileLogger = new CustomLogger("App.class", "out.log");
+CustomLogger consoleLogger = LoggerFactory.getLogger("App.class");
+CustomLogger fileLogger = LoggerFactory.getLogger("App.class", "out.log");
 
 consoleLogger.Log("This is a Console log");
 fileLogger.Log("This is a File log");
