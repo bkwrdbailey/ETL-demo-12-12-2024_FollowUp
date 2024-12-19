@@ -5,15 +5,13 @@ using ETL_demo_12_12_2024_FollowUp.Services;
 CustomFileReader customFileReader = CustomFileReader.Instance;
 List<string> inputs = customFileReader.ReadFileContents("input.csv");
 
-//Console.WriteLine(string.Join(',', inputs));
-//Console.Read();
-
 // Parse a file's contents
 CustomDataParser customDataParser = CustomDataParser.Instance;
 Dictionary<int, Person> outputData =  customDataParser.ParseFileData(inputs);
 
-// Display file contents to CLI
-foreach (Person person in outputData.Values)
-{
-    Console.WriteLine(person.ToString());
-}
+// Instantiate CustomLoggers for Console or specified File logging
+CustomLogger consoleLogger = new CustomLogger("App.class");
+CustomLogger fileLogger = new CustomLogger("App.class", "out.log");
+
+consoleLogger.Log("This is a Console log");
+fileLogger.Log("This is a File log");
